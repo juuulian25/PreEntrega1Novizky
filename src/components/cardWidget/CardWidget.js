@@ -7,7 +7,10 @@ const CardWidget = (props) => {
 
  
     return (
-       <p className="cardWidget">icono carrito: {props.cantidad}</p>
+        <div className="cart-box">
+            <p className="cardWidget">icono carrito: {props.cantidad}</p>
+        </div>
+       
     )
 }
 

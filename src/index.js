@@ -5,8 +5,11 @@
 //modulos
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+
 
 //estilos
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 //componentes
@@ -14,11 +17,13 @@ import './index.css';
 import NavBar from './components/navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import Footer from './components/footer/Footer';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/home/Home';
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 
 //WebVitals
 
 import reportWebVitals from './reportWebVitals';
+import AboutUs from './components/aboutUs/AboutUs';
 
 /* #############################
     Logica
@@ -27,12 +32,30 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavBar saludo="Hola"
-      despedida= "Adios"
-    />
+    <BrowserRouter>
+
+      <NavBar saludo="Hola"
+        despedida= "Adios"
+      />
+
+      <Routes>
+        <Route exact path='/' element={<Home/>}></Route>
+        <Route exact path='/items' element={<ItemListContainer greeting= "HOLA MUNDO"></ItemListContainer>}></Route>
+        <Route exact path='/aboutUs' element={<AboutUs/>}></Route>
+        <Route exact path='/items/:productoId' element={<ItemDetailContainer/>}></Route>
+
+      </Routes>
+
+
+      
+      
+
+      <Footer></Footer>
+
+    </BrowserRouter>
+
     
-    <ItemListContainer greeting= "HOLA MUNDO"></ItemListContainer>
-    <Footer></Footer>
+    
   </React.StrictMode>
 );
 

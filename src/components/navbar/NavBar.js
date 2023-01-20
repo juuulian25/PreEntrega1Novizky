@@ -1,12 +1,14 @@
 /* ###############################
     Importaciones
 ##################################*/
+import { Link } from "react-router-dom";
+
 import "./NavBar.css"
 import CardWidget from "../cardWidget/CardWidget"
 //import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Table } from "bootstrap/dist/css/bootstrap.min.css";
-
+import AboutUS from "../aboutUs/AboutUs"
 
 
 /* ###############################
@@ -21,10 +23,11 @@ const NavBar = (props) => { //funcion constructora
         <header>
             <nav className="navBar">
           
-                <p>Inicio</p>
-               
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/items">Productos</Link></li>
+                <li><Link to="/aboutUs">Nosotros</Link></li>
                 <p>Te saludo: {props.saludo}</p>
-                <p className="shopping-cart">shopping-cart</p>
+                
                
                 <CardWidget cantidad= "10"></CardWidget>
                 <p>{fechaString}</p>
