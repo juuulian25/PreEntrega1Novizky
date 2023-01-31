@@ -3,13 +3,13 @@ import "./CardWidget.css"
 import Button from 'react-bootstrap/Button';
 
 //logica
-const CardWidget = (props) => {
+const CardWidget = () => {
 
  
     return (
-        <div className="cart-box">
-            <p className="cardWidget">icono carrito: {props.cantidad}</p>
-        </div>
+       <p>aca tengo que llamarlo de todos los componenetes
+        
+       </p>
        
     )
 }

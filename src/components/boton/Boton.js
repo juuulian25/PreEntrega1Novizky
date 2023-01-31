@@ -1,16 +1,25 @@
 /* ###############################
     Importaciones
 ##################################*/
-import "./Home.css"
+
 
 /* ###############################
     Logica
 ##################################*/
-const Home = () => { //funcion constructora
+const Boton = (props) => { //funcion constructora
 
- 
+
+const funcionLocal = () => {
+    props.funcionHandler(props.variable)
+}
+
+
     return (
-       <h2>Home</h2>
+       <div>
+            <button onClick={funcionLocal}>{props.variable}</button>
+          
+            
+       </div>
     )
 }
 
@@ -18,4 +27,4 @@ const Home = () => { //funcion constructora
     Exportaciones
 ##################################*/
 
-export default Home
+export default Boton

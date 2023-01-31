@@ -26,21 +26,26 @@ const ItemListContainer = (props) => { //funcion constructora
     return(
         <div>
             <h1>Tienda Libre</h1>
+            <p>Productos traidos de una apy</p>
+
           
             <ItemList/>
 
-            <ItemCount stock="1"/>
-            <ItemCount stock="2"/>
-            <ItemCount stock="3"/>
-            <ItemCount stock="4"/>
         
-            <p>item LIST</p>
+    
         </div>
     )
  
    
 }
 
+
+/*
+<ItemCount stock="1"/>
+<ItemCount stock="2"/>
+<ItemCount stock="3"/>
+<ItemCount stock="4"/>
+*/
 /* ###############################
     Exportaciones
 ##################################*/

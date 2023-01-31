@@ -10,7 +10,7 @@ const AboutUs = () => { //funcion constructora
 
  
     return (
-       <p>Acerca de nosotros</p>
+       <h2>Acerca de nosotros</h2>
     )
 }
 

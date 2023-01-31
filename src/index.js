@@ -24,6 +24,8 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 
 import reportWebVitals from './reportWebVitals';
 import AboutUs from './components/aboutUs/AboutUs';
+import ItemListBBDD from './components/itemListBBDD/ItemListBBDD';
+import Carrito from './components/carrito/Carrito';
 
 /* #############################
     Logica
@@ -40,10 +42,11 @@ root.render(
 
       <Routes>
         <Route exact path='/' element={<Home/>}></Route>
-        <Route exact path='/items' element={<ItemListContainer greeting= "HOLA MUNDO"></ItemListContainer>}></Route>
+        <Route exact path='/itemListBBDD' element={<ItemListBBDD/>}></Route>
+        <Route exact path='/productos' element={<ItemListContainer greeting= "HOLA MUNDO"></ItemListContainer>}></Route>
         <Route exact path='/aboutUs' element={<AboutUs/>}></Route>
-        <Route exact path='/items/:productoId' element={<ItemDetailContainer/>}></Route>
-
+        <Route exact path='/producto/:productoId' element={<ItemDetailContainer/>}></Route>
+        <Route exact path='/carrito' element={<Carrito/>}></Route>
       </Routes>
 
 

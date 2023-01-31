@@ -3,8 +3,9 @@
     Importaciones
 ##################################*/
 import "./ItemList.css"
-import Item from "../item/Item"
+import ItemDetail from "../itemDetail/ItemDetail"
 import { useState, useEffect } from "react"
+import Boton from "../boton/Boton"
 /* ###############################
     Logica
 ##################################*/
@@ -15,90 +16,74 @@ const ItemList = (props) => { //funcion constructora
 
 
     //nuestra api de productos
-    
-    const [productos, setProductos] = useState([])
+
+       
+    const [titulo, setTitulo] = useState("Vacio")
+
+    const [inicio, setInicio] = useState(true)
 
     useEffect(()=> {
         
-        fetch('https://fakestoreapi.com/products?limit=4')
+        fetch(`https://fakestoreapi.com/products/category/${titulo}`)
         .then(res=>res.json())
-        .then(json=>setProductos(json.map(productos => <Item key={productos.id} id={"producto"+ productos.id} data={productos}/>)))
+        .then(json=>setProductos(json.map(productoJoyas => <ItemDetail key={productoJoyas.id} id={"producto"+ productoJoyas.id} data={productoJoyas}/>)))
+
+    }, [titulo])
+
+    
+    const [productos, setProductos] = useState([])
+//RENDERIZADO AL INICIO
+    useEffect(()=> {
+        
+        fetch('https://fakestoreapi.com/products?limit=15')
+        .then(res=>res.json())
+        .then(json=>setProductos(json.map(productos => <ItemDetail key={productos.id} id={"producto"+ productos.id} data={productos}/>)))
 
     }, [])
 
 
+    //********************************* */
 
- 
-    //let listaPorCategoria
-    //let listaDeProductosRenderizables
-/*
-    const respuesta = new Promise((resolve, reject) => {
+    const categoria = [
+        "electronics", "jewelery", "men's clothing", "women's clothing"
 
-        resolve()
-    })
-*/
-    
-    
-//array de componentes
-//asi funciona pero hay una forma mas simple
-//const listaDeProductosRenderizables = listaDeProductos.map(productos => <Item key={productos.id} id={"producto"+ productos.id} marca={productos.marca} color={productos.color} precio={productos.precio} categoria={productos.categoria} stock={productos.stock}></Item>)
+    ]
 
-//forma simple
+    const elegirCategoria = (loQueMePaso) => {
+      
+        setTitulo(loQueMePaso)
+        
+    }
 
-//id={"producto"+ productos.id}
-
-//pasar informacion real
+  
+//***************************************** */
 
     return (
         <div>
 
-          
-            {productos}
+            <h2>Lista de productos:</h2>
+            
+           
+            
+            <p>Filtrar productos por categoria:</p>
         
+            
+            {categoria.map(nombre => <Boton variable={nombre} funcionHandler={elegirCategoria}></Boton>)}         
+            <h4> {titulo} </h4>
+            {productos}
+    
+           
+
         </div>
     )
 }
+
+
+
+
 
 /* ###############################
     Exportaciones
 ##################################*/
 
 export default ItemList
-
-/*
-    const listaDeProductos = [
-        {
-            id:1,
-            marca: "Nike",
-            color: "Blanca",
-            precio: 30000,
-            categoria: "Running",
-            stock: 4
-        },
-        {
-            id:2,
-            marca: "Adidas",
-            color: "Roja",
-            precio: 25000,
-            categoria: "Running",
-            stock: 5
-        },
-        {
-            id:3,
-            marca: "Puma",
-            color: "Negra",
-            precio: 21000,
-            categoria: "Training",
-            stock: 6
-        },
-        {
-            id:4,
-            marca: "Fila",
-            color: "Verde",
-            precio: 15000,
-            categoria: "Training",
-            stock: 3
-
-        }
-     
-    ]*/
